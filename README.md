@@ -6,12 +6,12 @@
 
 This repository implements a full econometric pipeline for analyzing macroeconomic time series data. The workflow covers:
 
-- **Data loading** — Import and validation of macroeconomic series
-- **Exploratory data analysis** — Summary statistics and visual inspection
-- **Data preprocessing** — Transformations and preparation for modeling
-- **Statistical testing** — Unit root and stationarity checks
-- **Econometric modeling** — Estimation of multiple model classes
-- **Model comparison** — Criteria-based selection of the preferred specification
+- **Data loading** — ingestion and validation of time series datasets
+- **Exploratory data analysis** — visualization and summary statistics
+- **Data preprocessing** — transformation and preparation for modeling
+- **Statistical testing** — diagnostics and hypothesis tests
+- **Econometric modeling** — estimation of multiple model classes
+- **Model comparison** — evaluation and selection of best-performing specifications
 
 ---
 
@@ -21,10 +21,10 @@ The project implements the following econometric models:
 
 | Model | Description |
 |-------|-------------|
-| **OLS regression** | Linear regression with robust standard errors |
-| **ARIMA** | Univariate autoregressive integrated moving average time series model |
-| **GARCH** | GARCH volatility model for conditional variance |
-| **VAR** | Vector autoregression multivariate model |
+| **OLS regression** | Ordinary Least Squares for linear relationships |
+| **ARIMA** | Univariate time series model for trend and seasonality |
+| **GARCH** | Volatility modeling for conditional variance |
+| **VAR** | Vector Autoregression for multivariate time series |
 
 ---
 
@@ -59,19 +59,18 @@ The entire analysis can be executed automatically from the project root in R or 
 source("run_project.R")
 ```
 
-The pipeline runs all scripts sequentially and saves outputs to the `plots/` and `results/` directories automatically.
+The pipeline runs all scripts sequentially and saves outputs (plots and results) automatically. No manual intervention is required between stages.
 
 ---
 
 ## Outputs
 
-### `plots/`
+| Directory | Contents |
+|-----------|----------|
+| **plots/** | Visualizations, diagnostic plots, and time series charts produced by the pipeline |
+| **results/** | Model summaries, coefficient tables, statistical test outputs, and exported results (e.g. CSV) |
 
-Visualizations and diagnostics produced by the pipeline: time series plots, correlation heatmaps, residual and diagnostic plots for OLS, ARIMA, GARCH, and VAR (including impulse response functions).
-
-### `results/`
-
-Model summaries and statistical outputs: correlation matrices, test results, coefficient estimates, model summaries (OLS, ARIMA, GARCH, VAR), and model comparison tables.
+---
 
 ---
 
@@ -83,12 +82,12 @@ Model summaries and statistical outputs: correlation matrices, test results, coe
 
 Репозиторий реализует полный эконометрический пайплайн для анализа макроэкономических временных рядов. В него входят:
 
-- **Загрузка данных** — импорт и проверка макроэкономических рядов
-- **Разведочный анализ** — описательная статистика и визуальный анализ
-- **Предобработка данных** — преобразования и подготовка к моделированию
-- **Статистическое тестирование** — проверки единичного корня и стационарности
+- **Загрузка данных** — чтение и проверка наборов временных рядов
+- **Разведочный анализ** — визуализация и описательная статистика
+- **Предобработка данных** — преобразование и подготовка к моделированию
+- **Статистическое тестирование** — диагностика и проверка гипотез
 - **Эконометрическое моделирование** — оценка нескольких классов моделей
-- **Сравнение моделей** — выбор предпочтительной спецификации по критериям
+- **Сравнение моделей** — оценка и выбор наилучших спецификаций
 
 ---
 
@@ -98,10 +97,10 @@ Model summaries and statistical outputs: correlation matrices, test results, coe
 
 | Модель | Описание |
 |--------|----------|
-| **OLS-регрессия** | Линейная регрессия с робастными стандартными ошибками |
-| **ARIMA** | Унивариатная модель авторегрессии — скользящего среднего |
-| **GARCH** | Модель волатильности GARCH для условной дисперсии |
-| **VAR** | Векторная авторегрессия (многомерная модель) |
+| **OLS-регрессия** | Метод наименьших квадратов для линейных зависимостей |
+| **ARIMA** | Унивариатная модель временных рядов для тренда и сезонности |
+| **GARCH** | Моделирование волатильности условной дисперсии |
+| **VAR** | Векторная авторегрессия для многомерных временных рядов |
 
 ---
 
@@ -130,22 +129,19 @@ econometric-time-series-analysis/
 
 ## Запуск проекта
 
-Полный анализ выполняется автоматически из корня проекта в R или RStudio:
+Полный анализ можно выполнить автоматически из корня проекта в R или RStudio:
 
 ```r
 source("run_project.R")
 ```
 
-Пайплайн последовательно запускает все скрипты и сохраняет результаты в каталоги `plots/` и `results/` автоматически.
+Пайплайн последовательно запускает все скрипты и автоматически сохраняет результаты (графики и таблицы). Ручное вмешательство между этапами не требуется.
 
 ---
 
 ## Результаты
 
-### `plots/`
-
-Визуализации и диагностики: графики временных рядов, тепловые карты корреляций, графики остатков и диагностика для OLS, ARIMA, GARCH и VAR (включая функции импульсного отклика).
-
-### `results/`
-
-Сводки моделей и статистические результаты: матрицы корреляций, результаты тестов, оценки коэффициентов, сводки моделей (OLS, ARIMA, GARCH, VAR) и таблицы сравнения моделей.
+| Каталог | Содержимое |
+|---------|------------|
+| **plots/** | Визуализации, диагностические графики и графики временных рядов, созданные пайплайном |
+| **results/** | Сводки моделей, таблицы коэффициентов, результаты статистических тестов и экспорт (например, CSV) |
