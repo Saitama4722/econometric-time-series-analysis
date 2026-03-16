@@ -8,16 +8,16 @@ library(ggplot2)
 dir.create("plots", showWarnings = FALSE)
 dir.create("results", showWarnings = FALSE)
 
-df <- read_csv("data/macro_timeseries_clean.csv", col_types = cols(date = col_date()))
+df <- readr::read_csv("data/macro_timeseries_clean.csv", col_types = readr::cols(date = readr::col_date()))
 df <- df[order(df$date), ]
 df <- df[, c("inflation", "unemployment", "interest_rate", "industrial_production")]
 
 ts_data <- ts(df, start = 1, frequency = 12)
 
-adf_inflation <- ur.df(ts_data[, "inflation"], type = "drift", selectlags = "AIC")
-adf_unemployment <- ur.df(ts_data[, "unemployment"], type = "drift", selectlags = "AIC")
-adf_interest_rate <- ur.df(ts_data[, "interest_rate"], type = "drift", selectlags = "AIC")
-adf_industrial_production <- ur.df(ts_data[, "industrial_production"], type = "drift", selectlags = "AIC")
+adf_inflation <- urca::ur.df(ts_data[, "inflation"], type = "drift", selectlags = "AIC")
+adf_unemployment <- urca::ur.df(ts_data[, "unemployment"], type = "drift", selectlags = "AIC")
+adf_interest_rate <- urca::ur.df(ts_data[, "interest_rate"], type = "drift", selectlags = "AIC")
+adf_industrial_production <- urca::ur.df(ts_data[, "industrial_production"], type = "drift", selectlags = "AIC")
 
 print("ADF test - inflation:")
 print(summary(adf_inflation))
@@ -42,20 +42,20 @@ if (need_diff) {
   ts_data <- na.omit(ts_data)
 }
 
-lag_selection <- VARselect(ts_data, lag.max = 10, type = "const")
+lag_selection <- vars::VARselect(ts_data, lag.max = 10, type = "const")
 print("VAR lag selection (AIC, HQ, SC, FPE):")
 print(lag_selection)
 
 p_opt <- as.integer(lag_selection$selection["AIC(n)"])
-var_model <- VAR(ts_data, p = p_opt, type = "const")
+var_model <- vars::VAR(ts_data, p = p_opt, type = "const")
 
 print(summary(var_model))
 
 n_ahead <- 24
-irf_inflation <- irf(var_model, impulse = "inflation", response = colnames(ts_data), n.ahead = n_ahead)
-irf_unemployment <- irf(var_model, impulse = "unemployment", response = colnames(ts_data), n.ahead = n_ahead)
-irf_interest_rate <- irf(var_model, impulse = "interest_rate", response = colnames(ts_data), n.ahead = n_ahead)
-irf_industrial_production <- irf(var_model, impulse = "industrial_production", response = colnames(ts_data), n.ahead = n_ahead)
+irf_inflation <- vars::irf(var_model, impulse = "inflation", response = colnames(ts_data), n.ahead = n_ahead)
+irf_unemployment <- vars::irf(var_model, impulse = "unemployment", response = colnames(ts_data), n.ahead = n_ahead)
+irf_interest_rate <- vars::irf(var_model, impulse = "interest_rate", response = colnames(ts_data), n.ahead = n_ahead)
+irf_industrial_production <- vars::irf(var_model, impulse = "industrial_production", response = colnames(ts_data), n.ahead = n_ahead)
 
 irf_list <- list(
   inflation = irf_inflation,
@@ -73,16 +73,16 @@ for (imp_name in names(irf_list)) {
     response = rep(colnames(irf_mat), each = length(h)),
     value = as.numeric(irf_mat)
   )
-  p <- ggplot(plot_df, aes(x = horizon, y = value, color = response)) +
-    geom_line(linewidth = 0.8) +
-    geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
-    labs(x = "Horizon", y = "Response", title = paste("IRF: Shock to", imp_name)) +
-    theme_minimal() +
-    theme(legend.title = element_blank())
-  ggsave(paste0("plots/irf_", imp_name, ".png"), plot = p, width = 8, height = 5, dpi = 100)
+  p <- ggplot2::ggplot(plot_df, ggplot2::aes(x = horizon, y = value, color = response)) +
+    ggplot2::geom_line(linewidth = 0.8) +
+    ggplot2::geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+    ggplot2::labs(x = "Horizon", y = "Response", title = paste("IRF: Shock to", imp_name)) +
+    ggplot2::theme_minimal() +
+    ggplot2::theme(legend.title = ggplot2::element_blank())
+  ggplot2::ggsave(paste0("plots/irf_", imp_name, ".png"), plot = p, width = 8, height = 5, dpi = 100)
 }
 
-acoef_list <- Acoef(var_model)
+acoef_list <- vars::Acoef(var_model)
 coef_rows <- list()
 for (lag_idx in seq_along(acoef_list)) {
   mat <- acoef_list[[lag_idx]]
@@ -98,7 +98,7 @@ for (lag_idx in seq_along(acoef_list)) {
   }
 }
 coef_df <- do.call(rbind, coef_rows)
-write_csv(coef_df, "results/var_coefficients.csv")
+readr::write_csv(coef_df, "results/var_coefficients.csv")
 
 sink("results/var_model_summary.txt", split = TRUE)
 print(summary(var_model))

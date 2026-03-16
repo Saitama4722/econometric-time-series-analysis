@@ -1,0 +1,249 @@
+
+VAR Estimation Results:
+========================= 
+Endogenous variables: inflation, unemployment, interest_rate, industrial_production 
+Deterministic variables: const 
+Sample size: 848 
+Log Likelihood: -1705.255 
+Roots of the characteristic polynomial:
+0.9468 0.8842 0.8746 0.8746 0.8683 0.8683 0.8639 0.8639 0.8594 0.8594 0.8535 0.8535 0.8497 0.8497 0.841 0.841 0.8326 0.8326 0.8286 0.8286 0.8272 0.8272 0.8247 0.8247 0.8228 0.8228 0.7709 0.7709 0.7669 0.7669 0.7592 0.7592 0.7517 0.7517 0.7015 0.7015 0.7011 0.7011 0.5921 0.5047
+Call:
+vars::VAR(y = ts_data, p = p_opt, type = "const")
+
+
+Estimation results for equation inflation: 
+========================================== 
+inflation = inflation.l1 + unemployment.l1 + interest_rate.l1 + industrial_production.l1 + inflation.l2 + unemployment.l2 + interest_rate.l2 + industrial_production.l2 + inflation.l3 + unemployment.l3 + interest_rate.l3 + industrial_production.l3 + inflation.l4 + unemployment.l4 + interest_rate.l4 + industrial_production.l4 + inflation.l5 + unemployment.l5 + interest_rate.l5 + industrial_production.l5 + inflation.l6 + unemployment.l6 + interest_rate.l6 + industrial_production.l6 + inflation.l7 + unemployment.l7 + interest_rate.l7 + industrial_production.l7 + inflation.l8 + unemployment.l8 + interest_rate.l8 + industrial_production.l8 + inflation.l9 + unemployment.l9 + interest_rate.l9 + industrial_production.l9 + inflation.l10 + unemployment.l10 + interest_rate.l10 + industrial_production.l10 + const 
+
+                           Estimate Std. Error t value Pr(>|t|)    
+inflation.l1               0.562398   0.035181  15.986  < 2e-16 ***
+unemployment.l1            0.082083   0.047518   1.727 0.084476 .  
+interest_rate.l1           0.038798   0.031431   1.234 0.217426    
+industrial_production.l1   0.052900   0.028828   1.835 0.066874 .  
+inflation.l2              -0.157056   0.040428  -3.885 0.000111 ***
+unemployment.l2            0.143503   0.048871   2.936 0.003415 ** 
+interest_rate.l2           0.019758   0.033766   0.585 0.558609    
+industrial_production.l2   0.080135   0.030110   2.661 0.007937 ** 
+inflation.l3               0.079362   0.040707   1.950 0.051571 .  
+unemployment.l3            0.018912   0.049690   0.381 0.703609    
+interest_rate.l3          -0.010946   0.033836  -0.324 0.746396    
+industrial_production.l3   0.027457   0.029956   0.917 0.359638    
+inflation.l4               0.052214   0.040574   1.287 0.198506    
+unemployment.l4           -0.059008   0.050783  -1.162 0.245595    
+interest_rate.l4           0.007514   0.033432   0.225 0.822225    
+industrial_production.l4  -0.032070   0.030108  -1.065 0.287127    
+inflation.l5               0.008773   0.040739   0.215 0.829556    
+unemployment.l5           -0.109512   0.051130  -2.142 0.032507 *  
+interest_rate.l5           0.002430   0.033536   0.072 0.942253    
+industrial_production.l5  -0.049510   0.029988  -1.651 0.099128 .  
+inflation.l6              -0.021779   0.040711  -0.535 0.592827    
+unemployment.l6           -0.038923   0.051114  -0.761 0.446585    
+interest_rate.l6           0.012916   0.033443   0.386 0.699454    
+industrial_production.l6  -0.001575   0.029973  -0.053 0.958109    
+inflation.l7               0.130921   0.040751   3.213 0.001367 ** 
+unemployment.l7            0.083512   0.050923   1.640 0.101405    
+interest_rate.l7           0.004074   0.033342   0.122 0.902770    
+industrial_production.l7   0.046141   0.030016   1.537 0.124636    
+inflation.l8               0.009158   0.040933   0.224 0.823033    
+unemployment.l8            0.005039   0.050266   0.100 0.920180    
+interest_rate.l8           0.027490   0.033724   0.815 0.415222    
+industrial_production.l8   0.006581   0.029743   0.221 0.824945    
+inflation.l9              -0.033802   0.040429  -0.836 0.403348    
+unemployment.l9           -0.195926   0.050172  -3.905 0.000102 ***
+interest_rate.l9          -0.022072   0.033703  -0.655 0.512729    
+industrial_production.l9  -0.118002   0.029287  -4.029 6.13e-05 ***
+inflation.l10              0.179379   0.035525   5.049 5.48e-07 ***
+unemployment.l10          -0.046166   0.048377  -0.954 0.340217    
+interest_rate.l10          0.011533   0.031071   0.371 0.710602    
+industrial_production.l10 -0.011607   0.028985  -0.400 0.688916    
+const                      0.069937   0.021411   3.266 0.001135 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.378 on 807 degrees of freedom
+Multiple R-Squared: 0.4367,	Adjusted R-squared: 0.4088 
+F-statistic: 15.64 on 40 and 807 DF,  p-value: < 2.2e-16 
+
+
+Estimation results for equation unemployment: 
+============================================= 
+unemployment = inflation.l1 + unemployment.l1 + interest_rate.l1 + industrial_production.l1 + inflation.l2 + unemployment.l2 + interest_rate.l2 + industrial_production.l2 + inflation.l3 + unemployment.l3 + interest_rate.l3 + industrial_production.l3 + inflation.l4 + unemployment.l4 + interest_rate.l4 + industrial_production.l4 + inflation.l5 + unemployment.l5 + interest_rate.l5 + industrial_production.l5 + inflation.l6 + unemployment.l6 + interest_rate.l6 + industrial_production.l6 + inflation.l7 + unemployment.l7 + interest_rate.l7 + industrial_production.l7 + inflation.l8 + unemployment.l8 + interest_rate.l8 + industrial_production.l8 + inflation.l9 + unemployment.l9 + interest_rate.l9 + industrial_production.l9 + inflation.l10 + unemployment.l10 + interest_rate.l10 + industrial_production.l10 + const 
+
+                           Estimate Std. Error t value Pr(>|t|)    
+inflation.l1              -0.139861   0.036961  -3.784 0.000166 ***
+unemployment.l1           -0.308964   0.049922  -6.189 9.63e-10 ***
+interest_rate.l1          -0.089431   0.033022  -2.708 0.006907 ** 
+industrial_production.l1  -0.252446   0.030287  -8.335 3.32e-16 ***
+inflation.l2               0.082551   0.042474   1.944 0.052295 .  
+unemployment.l2           -0.180834   0.051344  -3.522 0.000452 ***
+interest_rate.l2           0.041589   0.035474   1.172 0.241397    
+industrial_production.l2  -0.023781   0.031634  -0.752 0.452410    
+inflation.l3              -0.029495   0.042767  -0.690 0.490599    
+unemployment.l3           -0.035973   0.052205  -0.689 0.490974    
+interest_rate.l3          -0.030282   0.035548  -0.852 0.394553    
+industrial_production.l3  -0.062826   0.031471  -1.996 0.046238 *  
+inflation.l4               0.070141   0.042627   1.645 0.100270    
+unemployment.l4           -0.069521   0.053353  -1.303 0.192931    
+interest_rate.l4           0.001725   0.035123   0.049 0.960836    
+industrial_production.l4  -0.030458   0.031632  -0.963 0.335883    
+inflation.l5              -0.001416   0.042800  -0.033 0.973621    
+unemployment.l5            0.004581   0.053717   0.085 0.932062    
+interest_rate.l5          -0.021846   0.035233  -0.620 0.535411    
+industrial_production.l5   0.013684   0.031505   0.434 0.664160    
+inflation.l6               0.027561   0.042771   0.644 0.519504    
+unemployment.l6           -0.094300   0.053701  -1.756 0.079463 .  
+interest_rate.l6          -0.020984   0.035135  -0.597 0.550511    
+industrial_production.l6  -0.045939   0.031490  -1.459 0.144991    
+inflation.l7              -0.021276   0.042813  -0.497 0.619361    
+unemployment.l7           -0.012677   0.053500  -0.237 0.812753    
+interest_rate.l7           0.027114   0.035029   0.774 0.439129    
+industrial_production.l7   0.002571   0.031535   0.082 0.935047    
+inflation.l8               0.006200   0.043005   0.144 0.885406    
+unemployment.l8            0.015232   0.052810   0.288 0.773084    
+interest_rate.l8          -0.046031   0.035430  -1.299 0.194253    
+industrial_production.l8   0.022704   0.031248   0.727 0.467696    
+inflation.l9               0.026467   0.042474   0.623 0.533383    
+unemployment.l9            0.013593   0.052710   0.258 0.796560    
+interest_rate.l9           0.037006   0.035409   1.045 0.296285    
+industrial_production.l9  -0.032681   0.030769  -1.062 0.288488    
+inflation.l10             -0.044916   0.037322  -1.203 0.229143    
+unemployment.l10          -0.046274   0.050825  -0.910 0.362851    
+interest_rate.l10          0.024908   0.032643   0.763 0.445671    
+industrial_production.l10 -0.013414   0.030451  -0.441 0.659686    
+const                      0.049480   0.022494   2.200 0.028112 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.3971 on 807 degrees of freedom
+Multiple R-Squared: 0.1499,	Adjusted R-squared: 0.1078 
+F-statistic: 3.559 on 40 and 807 DF,  p-value: 4.306e-12 
+
+
+Estimation results for equation interest_rate: 
+============================================== 
+interest_rate = inflation.l1 + unemployment.l1 + interest_rate.l1 + industrial_production.l1 + inflation.l2 + unemployment.l2 + interest_rate.l2 + industrial_production.l2 + inflation.l3 + unemployment.l3 + interest_rate.l3 + industrial_production.l3 + inflation.l4 + unemployment.l4 + interest_rate.l4 + industrial_production.l4 + inflation.l5 + unemployment.l5 + interest_rate.l5 + industrial_production.l5 + inflation.l6 + unemployment.l6 + interest_rate.l6 + industrial_production.l6 + inflation.l7 + unemployment.l7 + interest_rate.l7 + industrial_production.l7 + inflation.l8 + unemployment.l8 + interest_rate.l8 + industrial_production.l8 + inflation.l9 + unemployment.l9 + interest_rate.l9 + industrial_production.l9 + inflation.l10 + unemployment.l10 + interest_rate.l10 + industrial_production.l10 + const 
+
+                            Estimate Std. Error t value Pr(>|t|)    
+inflation.l1              -0.0026881  0.0397020  -0.068 0.946035    
+unemployment.l1            0.0020139  0.0536245   0.038 0.970051    
+interest_rate.l1           0.4132180  0.0354706  11.650  < 2e-16 ***
+industrial_production.l1   0.0706425  0.0325332   2.171 0.030192 *  
+inflation.l2              -0.0237580  0.0456238  -0.521 0.602692    
+unemployment.l2            0.0459410  0.0551515   0.833 0.405093    
+interest_rate.l2          -0.1472187  0.0381050  -3.864 0.000121 ***
+industrial_production.l2   0.0710682  0.0339799   2.091 0.036797 *  
+inflation.l3              -0.0184982  0.0459385  -0.403 0.687295    
+unemployment.l3           -0.0955518  0.0560763  -1.704 0.088774 .  
+interest_rate.l3          -0.0200817  0.0381849  -0.526 0.599096    
+industrial_production.l3  -0.0023738  0.0338055  -0.070 0.944038    
+inflation.l4              -0.0538939  0.0457888  -1.177 0.239539    
+unemployment.l4           -0.1246167  0.0573097  -2.174 0.029962 *  
+interest_rate.l4          -0.0908725  0.0377283  -2.409 0.016237 *  
+industrial_production.l4  -0.0353223  0.0339775  -1.040 0.298848    
+inflation.l5               0.0529892  0.0459740   1.153 0.249420    
+unemployment.l5           -0.0733131  0.0577013  -1.271 0.204250    
+interest_rate.l5           0.0154144  0.0378459   0.407 0.683899    
+industrial_production.l5  -0.0124858  0.0338420  -0.369 0.712266    
+inflation.l6              -0.0132518  0.0459430  -0.288 0.773085    
+unemployment.l6            0.0025896  0.0576831   0.045 0.964203    
+interest_rate.l6           0.0070235  0.0377411   0.186 0.852416    
+industrial_production.l6   0.0032212  0.0338251   0.095 0.924154    
+inflation.l7               0.0549536  0.0459880   1.195 0.232455    
+unemployment.l7            0.0090834  0.0574679   0.158 0.874448    
+interest_rate.l7          -0.1613559  0.0376271  -4.288 2.02e-05 ***
+industrial_production.l7   0.0245485  0.0338735   0.725 0.468839    
+inflation.l8              -0.0115489  0.0461940  -0.250 0.802644    
+unemployment.l8           -0.0514555  0.0567260  -0.907 0.364631    
+interest_rate.l8           0.1332751  0.0380581   3.502 0.000487 ***
+industrial_production.l8  -0.0312571  0.0335657  -0.931 0.352018    
+inflation.l9               0.0207326  0.0456245   0.454 0.649649    
+unemployment.l9           -0.0645960  0.0566194  -1.141 0.254258    
+interest_rate.l9           0.1207331  0.0380347   3.174 0.001559 ** 
+industrial_production.l9   0.0000797  0.0330507   0.002 0.998076    
+inflation.l10              0.0044528  0.0400901   0.111 0.911589    
+unemployment.l10          -0.0535296  0.0545940  -0.981 0.327132    
+interest_rate.l10         -0.0886506  0.0350643  -2.528 0.011654 *  
+industrial_production.l10 -0.0135219  0.0327095  -0.413 0.679428    
+const                     -0.0083169  0.0241623  -0.344 0.730778    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.4265 on 807 degrees of freedom
+Multiple R-Squared: 0.2573,	Adjusted R-squared: 0.2205 
+F-statistic: 6.989 on 40 and 807 DF,  p-value: < 2.2e-16 
+
+
+Estimation results for equation industrial_production: 
+====================================================== 
+industrial_production = inflation.l1 + unemployment.l1 + interest_rate.l1 + industrial_production.l1 + inflation.l2 + unemployment.l2 + interest_rate.l2 + industrial_production.l2 + inflation.l3 + unemployment.l3 + interest_rate.l3 + industrial_production.l3 + inflation.l4 + unemployment.l4 + interest_rate.l4 + industrial_production.l4 + inflation.l5 + unemployment.l5 + interest_rate.l5 + industrial_production.l5 + inflation.l6 + unemployment.l6 + interest_rate.l6 + industrial_production.l6 + inflation.l7 + unemployment.l7 + interest_rate.l7 + industrial_production.l7 + inflation.l8 + unemployment.l8 + interest_rate.l8 + industrial_production.l8 + inflation.l9 + unemployment.l9 + interest_rate.l9 + industrial_production.l9 + inflation.l10 + unemployment.l10 + interest_rate.l10 + industrial_production.l10 + const 
+
+                           Estimate Std. Error t value Pr(>|t|)    
+inflation.l1               0.344887   0.060619   5.689 1.78e-08 ***
+unemployment.l1            0.176821   0.081876   2.160 0.031097 *  
+interest_rate.l1           0.170612   0.054158   3.150 0.001691 ** 
+industrial_production.l1   0.219354   0.049673   4.416 1.14e-05 ***
+inflation.l2              -0.150573   0.069660  -2.162 0.030948 *  
+unemployment.l2            0.496788   0.084208   5.900 5.36e-09 ***
+interest_rate.l2          -0.011176   0.058180  -0.192 0.847721    
+industrial_production.l2   0.063225   0.051882   1.219 0.223339    
+inflation.l3               0.044282   0.070141   0.631 0.528004    
+unemployment.l3            0.370821   0.085620   4.331 1.67e-05 ***
+interest_rate.l3           0.001354   0.058302   0.023 0.981484    
+industrial_production.l3   0.158473   0.051616   3.070 0.002211 ** 
+inflation.l4              -0.045332   0.069912  -0.648 0.516906    
+unemployment.l4            0.243016   0.087503   2.777 0.005610 ** 
+interest_rate.l4          -0.046935   0.057605  -0.815 0.415447    
+industrial_production.l4   0.147546   0.051878   2.844 0.004567 ** 
+inflation.l5              -0.016256   0.070195  -0.232 0.816926    
+unemployment.l5            0.074252   0.088101   0.843 0.399589    
+interest_rate.l5           0.016967   0.057785   0.294 0.769114    
+industrial_production.l5   0.070833   0.051671   1.371 0.170809    
+inflation.l6              -0.144749   0.070148  -2.063 0.039386 *  
+unemployment.l6            0.212042   0.088073   2.408 0.016283 *  
+interest_rate.l6          -0.019644   0.057625  -0.341 0.733270    
+industrial_production.l6   0.172590   0.051646   3.342 0.000871 ***
+inflation.l7               0.028958   0.070216   0.412 0.680151    
+unemployment.l7            0.027590   0.087745   0.314 0.753268    
+interest_rate.l7          -0.002183   0.057451  -0.038 0.969702    
+industrial_production.l7   0.026884   0.051720   0.520 0.603338    
+inflation.l8              -0.056224   0.070531  -0.797 0.425597    
+unemployment.l8            0.101424   0.086612   1.171 0.241939    
+interest_rate.l8           0.007362   0.058109   0.127 0.899210    
+industrial_production.l8  -0.015294   0.051250  -0.298 0.765465    
+inflation.l9              -0.054707   0.069661  -0.785 0.432490    
+unemployment.l9            0.039594   0.086449   0.458 0.647073    
+interest_rate.l9          -0.027955   0.058073  -0.481 0.630374    
+industrial_production.l9   0.068818   0.050463   1.364 0.173034    
+inflation.l10             -0.009837   0.061211  -0.161 0.872359    
+unemployment.l10          -0.140182   0.083357  -1.682 0.093010 .  
+interest_rate.l10         -0.063210   0.053538  -1.181 0.238083    
+industrial_production.l10  0.065355   0.049942   1.309 0.191039    
+const                      0.021906   0.036892   0.594 0.552821    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Residual standard error: 0.6513 on 807 degrees of freedom
+Multiple R-Squared: 0.2111,	Adjusted R-squared: 0.172 
+F-statistic: 5.399 on 40 and 807 DF,  p-value: < 2.2e-16 
+
+
+
+Covariance matrix of residuals:
+                      inflation unemployment interest_rate industrial_production
+inflation              0.142855     -0.02610      0.004864               0.03599
+unemployment          -0.026103      0.15768     -0.015051              -0.18540
+interest_rate          0.004864     -0.01505      0.181932               0.04135
+industrial_production  0.035992     -0.18540      0.041353               0.42413
+
+Correlation matrix of residuals:
+                      inflation unemployment interest_rate industrial_production
+inflation               1.00000     -0.17393       0.03017                0.1462
+unemployment           -0.17393      1.00000      -0.08887               -0.7169
+interest_rate           0.03017     -0.08887       1.00000                0.1489
+industrial_production   0.14622     -0.71695       0.14887                1.0000
+
+

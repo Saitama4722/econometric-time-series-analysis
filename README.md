@@ -1,41 +1,55 @@
 # Econometric Time Series Analysis
 
+**A full automated econometric pipeline for macroeconomic time series analysis in R.**
+
+This repository implements an end-to-end workflow for econometric time series analysis and macroeconomic data analysis: from data loading and exploratory analysis through preprocessing, statistical testing, and multiple model classes (OLS regression, ARIMA, GARCH, VAR), with automated model comparison and one-command execution via `run_project.R`. It is designed for practitioners and researchers interested in **R econometrics**, **time series modeling in R**, **macroeconomic forecasting**, and **automated econometric pipeline** workflows.
+
 ---
 
 ## Project Overview
 
-This repository implements a full econometric pipeline for analyzing macroeconomic time series data. The workflow covers:
+The project provides a reproducible, script-based pipeline for **econometric time series analysis** of U.S. macroeconomic indicators. Data are fetched from FRED (Federal Reserve Economic Data), then processed, tested, and modeled using standard econometric tools. Outputs include diagnostic plots, model summaries, coefficient tables, and comparison metrics, all generated automatically.
 
-- **Data loading** — ingestion and validation of time series datasets
-- **Exploratory data analysis** — visualization and summary statistics
-- **Data preprocessing** — transformation and preparation for modeling
-- **Statistical testing** — diagnostics and hypothesis tests
-- **Econometric modeling** — estimation of multiple model classes
-- **Model comparison** — evaluation and selection of best-performing specifications
+---
+
+## Key Features
+
+- **Automated pipeline** — Single entry point (`run_project.R`) runs the full analysis sequence.
+- **Macroeconomic data** — Inflation (CPI), unemployment, federal funds rate, and industrial production.
+- **Statistical testing** — Unit-root and diagnostic tests integrated into the workflow.
+- **Multiple model classes** — OLS, ARIMA, GARCH, and VAR in one project.
+- **Model comparison** — Information criteria (AIC/BIC) for model selection.
+- **Structured outputs** — Plots and results saved to dedicated folders for easy reuse and reporting.
 
 ---
 
 ## Models Used
 
-The project implements the following econometric models:
-
 | Model | Description |
 |-------|-------------|
-| **OLS regression** | Ordinary Least Squares for linear relationships |
-| **ARIMA** | Univariate time series model for trend and seasonality |
-| **GARCH** | Volatility modeling for conditional variance |
-| **VAR** | Vector Autoregression for multivariate time series |
+| **OLS regression** | Ordinary Least Squares for linear relationships among macroeconomic variables (OLS in R). |
+| **ARIMA** | Univariate time series model for trend and dynamics (ARIMA in R). |
+| **GARCH** | Volatility modeling for conditional variance (GARCH in R). |
+| **VAR** | Vector Autoregression for multivariate time series (VAR model in R). |
+
+---
+
+## Technology Stack
+
+- **R** — Core language for analysis and modeling.
+- **Libraries** — `quantmod`, `zoo`, `xts`, `dplyr`, `tidyr`, `readr`, `ggplot2`, `lmtest`, `sandwich`, `urca`, `forecast`, `rugarch`, `vars`, `FinTS`.
+- **Data source** — FRED (Federal Reserve Economic Data) via `quantmod`.
 
 ---
 
 ## Project Structure
 
 ```
-econometric-time-series-analysis/
-├── data/
-├── plots/
-├── results/
-├── scripts/
+econometrics-time-series-analysis/
+├── data/              # Input and derived datasets
+├── plots/             # Generated visualizations
+├── results/           # Model outputs and tables
+├── scripts/           # Pipeline scripts (numbered by execution order)
 │   ├── 01_load_data.R
 │   ├── 02_exploratory_analysis.R
 │   ├── 03_data_preparation.R
@@ -45,21 +59,23 @@ econometric-time-series-analysis/
 │   ├── 07_garch_model.R
 │   ├── 08_var_model.R
 │   └── 09_model_comparison.R
-├── run_project.R
+├── run_project.R      # Master script to run the full pipeline
 └── README.md
 ```
 
 ---
 
-## Running the Project
+## How to Run the Project
 
-The entire analysis can be executed automatically from the project root in R or RStudio:
+From the project root directory in R or RStudio, execute:
 
 ```r
 source("run_project.R")
 ```
 
-The pipeline runs all scripts sequentially and saves outputs (plots and results) automatically. No manual intervention is required between stages.
+The script creates `data/`, `plots/`, and `results/` if needed, then runs all scripts in sequence. No manual steps are required between stages.
+
+**Requirements:** R with the packages listed above. The first script installs missing packages from CRAN if necessary.
 
 ---
 
@@ -67,8 +83,26 @@ The pipeline runs all scripts sequentially and saves outputs (plots and results)
 
 | Directory | Contents |
 |-----------|----------|
-| **plots/** | Visualizations, diagnostic plots, and time series charts produced by the pipeline |
-| **results/** | Model summaries, coefficient tables, statistical test outputs, and exported results (e.g. CSV) |
+| **data/** | `macro_timeseries.csv` (raw FRED data), `macro_timeseries_clean.csv` (cleaned), `macro_timeseries_scaled.csv` (scaled series for modeling). |
+| **plots/** | Time series plots per variable (e.g. `inflation.png`, `unemployment.png`), correlation heatmap (`correlation_heatmap.png`), and any additional diagnostic or model plots produced by the pipeline. |
+| **results/** | Statistical test summaries (`statistical_tests.txt`), correlation matrix (`correlation_matrix.csv`), model summaries and coefficients for OLS, ARIMA, GARCH, and VAR (e.g. `ols_model_summary.txt`, `arima_coefficients.csv`), model comparison table (`model_comparison.csv`), and best-model selection (`best_model.txt`). |
+
+---
+
+## Repository Highlights
+
+- **End-to-end automation** — One command runs data loading, EDA, preprocessing, testing, modeling, and comparison.
+- **Standard econometric toolkit** — OLS, ARIMA, GARCH, and VAR in a single R project.
+- **Reproducibility** — Script-based design and clear folder structure.
+- **Search-friendly** — Relevant for topics such as econometric time series analysis, macroeconomic data analysis, R econometrics project, ARIMA in R, GARCH in R, VAR model in R, OLS regression in R, automated econometric pipeline, macroeconomic forecasting, and time series modeling in R.
+
+---
+
+## Contact
+
+For collaboration, project-related questions, or professional inquiries, please contact:
+
+**bvv1@yahoo.com**
 
 ---
 
@@ -76,42 +110,56 @@ The pipeline runs all scripts sequentially and saves outputs (plots and results)
 
 # Эконометрический анализ временных рядов
 
+**Полностью автоматизированный эконометрический пайплайн для анализа макроэкономических временных рядов в R.**
+
+В репозитории реализован сквозной рабочий процесс эконометрического анализа временных рядов и анализа макроэкономических данных: от загрузки данных и разведочного анализа до предобработки, статистического тестирования и нескольких классов моделей (OLS-регрессия, ARIMA, GARCH, VAR) с автоматическим сравнением моделей и запуском одной командой через `run_project.R`. Проект ориентирован на практиков и исследователей в области эконометрики в R, моделирования временных рядов, макроэкономического прогнозирования и автоматизированных эконометрических пайплайнов.
+
 ---
 
 ## Обзор проекта
 
-Репозиторий реализует полный эконометрический пайплайн для анализа макроэкономических временных рядов. В него входят:
+Проект предоставляет воспроизводимый пайплайн на основе R-скриптов для эконометрического анализа временных рядов макроэкономических показателей США. Данные загружаются из FRED (Federal Reserve Economic Data), затем обрабатываются, тестируются и моделируются с помощью стандартных эконометрических инструментов. Результаты включают диагностические графики, сводки моделей, таблицы коэффициентов и метрики сравнения — всё генерируется автоматически.
 
-- **Загрузка данных** — чтение и проверка наборов временных рядов
-- **Разведочный анализ** — визуализация и описательная статистика
-- **Предобработка данных** — преобразование и подготовка к моделированию
-- **Статистическое тестирование** — диагностика и проверка гипотез
-- **Эконометрическое моделирование** — оценка нескольких классов моделей
-- **Сравнение моделей** — оценка и выбор наилучших спецификаций
+---
+
+## Основные возможности
+
+- **Автоматизированный пайплайн** — единая точка входа (`run_project.R`) запускает полную последовательность анализа.
+- **Макроэкономические данные** — инфляция (ИПЦ), безработица, ставка по федеральным фондам, промышленное производство.
+- **Статистическое тестирование** — тесты на единичный корень и диагностика встроены в процесс.
+- **Несколько классов моделей** — OLS, ARIMA, GARCH и VAR в одном проекте.
+- **Сравнение моделей** — информационные критерии (AIC/BIC) для выбора модели.
+- **Структурированные результаты** — графики и таблицы сохраняются в отдельные папки для отчётности и повторного использования.
 
 ---
 
 ## Используемые модели
 
-В проекте реализованы следующие эконометрические модели:
-
 | Модель | Описание |
 |--------|----------|
-| **OLS-регрессия** | Метод наименьших квадратов для линейных зависимостей |
-| **ARIMA** | Унивариатная модель временных рядов для тренда и сезонности |
-| **GARCH** | Моделирование волатильности условной дисперсии |
-| **VAR** | Векторная авторегрессия для многомерных временных рядов |
+| **OLS-регрессия** | МНК для линейных связей между макроэкономическими переменными. |
+| **ARIMA** | Унивариатная модель временных рядов для тренда и динамики. |
+| **GARCH** | Моделирование волатильности (условная дисперсия). |
+| **VAR** | Векторная авторегрессия для многомерных временных рядов. |
 
 ---
 
-## Структура проекта
+## Технологический стек
+
+- **R** — основной язык анализа и моделирования.
+- **Пакеты** — `quantmod`, `zoo`, `xts`, `dplyr`, `tidyr`, `readr`, `ggplot2`, `lmtest`, `sandwich`, `urca`, `forecast`, `rugarch`, `vars`, `FinTS`.
+- **Источник данных** — FRED через `quantmod`.
+
+---
+
+## Структура репозитория
 
 ```
-econometric-time-series-analysis/
-├── data/
-├── plots/
-├── results/
-├── scripts/
+econometrics-time-series-analysis/
+├── data/              # Исходные и производные данные
+├── plots/             # Сгенерированные графики
+├── results/           # Результаты моделей и таблицы
+├── scripts/           # Скрипты пайплайна (по порядку выполнения)
 │   ├── 01_load_data.R
 │   ├── 02_exploratory_analysis.R
 │   ├── 03_data_preparation.R
@@ -121,7 +169,7 @@ econometric-time-series-analysis/
 │   ├── 07_garch_model.R
 │   ├── 08_var_model.R
 │   └── 09_model_comparison.R
-├── run_project.R
+├── run_project.R      # Главный скрипт запуска пайплайна
 └── README.md
 ```
 
@@ -129,13 +177,15 @@ econometric-time-series-analysis/
 
 ## Запуск проекта
 
-Полный анализ можно выполнить автоматически из корня проекта в R или RStudio:
+Из корневой папки проекта в R или RStudio выполните:
 
 ```r
 source("run_project.R")
 ```
 
-Пайплайн последовательно запускает все скрипты и автоматически сохраняет результаты (графики и таблицы). Ручное вмешательство между этапами не требуется.
+Скрипт создаёт при необходимости каталоги `data/`, `plots/` и `results/`, затем последовательно запускает все скрипты. Ручные шаги между этапами не требуются.
+
+**Требования:** R с перечисленными выше пакетами. Первый скрипт при необходимости устанавливает отсутствующие пакеты из CRAN.
 
 ---
 
@@ -143,5 +193,23 @@ source("run_project.R")
 
 | Каталог | Содержимое |
 |---------|------------|
-| **plots/** | Визуализации, диагностические графики и графики временных рядов, созданные пайплайном |
-| **results/** | Сводки моделей, таблицы коэффициентов, результаты статистических тестов и экспорт (например, CSV) |
+| **data/** | `macro_timeseries.csv` (сырые данные FRED), `macro_timeseries_clean.csv` (очищенные), `macro_timeseries_scaled.csv` (масштабированные ряды для моделирования). |
+| **plots/** | Графики временных рядов по переменным (напр. `inflation.png`, `unemployment.png`), тепловая карта корреляций (`correlation_heatmap.png`) и прочие диагностические графики пайплайна. |
+| **results/** | Сводки статистических тестов (`statistical_tests.txt`), матрица корреляций (`correlation_matrix.csv`), сводки и коэффициенты моделей OLS, ARIMA, GARCH и VAR (напр. `ols_model_summary.txt`, `arima_coefficients.csv`), таблица сравнения моделей (`model_comparison.csv`) и выбор лучшей модели (`best_model.txt`). |
+
+---
+
+## Особенности репозитория
+
+- **Сквозная автоматизация** — одна команда выполняет загрузку данных, EDA, предобработку, тесты, моделирование и сравнение.
+- **Стандартный эконометрический набор** — OLS, ARIMA, GARCH и VAR в одном R-проекте.
+- **Воспроизводимость** — скриптовая структура и понятная организация папок.
+- **Практическая применимость** — подходит для задач эконометрического анализа временных рядов, анализа макроэкономических данных, моделирования и прогнозирования в R.
+
+---
+
+## Контакты
+
+По вопросам сотрудничества, проекта и профессионального взаимодействия:
+
+**bvv1@yahoo.com**

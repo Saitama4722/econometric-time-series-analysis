@@ -1,0 +1,3 @@
+Model comparison (information criteria).
+Best model by AIC: GARCH
+Best model by BIC: GARCH

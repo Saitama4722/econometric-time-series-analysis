@@ -1,0 +1,14 @@
+Series: inflation_ts 
+ARIMA(0,2,3) 
+
+Coefficients:
+          ma1      ma2      ma3
+      -0.4206  -0.4189  -0.0606
+s.e.   0.0345   0.0341   0.0371
+
+sigma^2 = 0.148:  log likelihood = -396.69
+AIC=801.37   AICc=801.42   BIC=820.38
+
+Training set error measures:
+                      ME      RMSE       MAE        MPE      MAPE      MASE         ACF1
+Training set 0.009528801 0.3836194 0.2239321 0.01409054 0.1688698 0.5415911 -0.002427962

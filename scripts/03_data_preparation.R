@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 library(readr)
 
-df <- read_csv("data/macro_timeseries.csv", col_types = cols(date = col_date()))
+df <- readr::read_csv("data/macro_timeseries.csv", col_types = readr::cols(date = readr::col_date()))
 
 missing_counts <- colSums(is.na(df))
 print("Missing values per column:")
@@ -26,7 +26,7 @@ print("Outliers per variable (IQR method):")
 print(outlier_counts)
 
 df <- df %>%
-  mutate(
+  dplyr::mutate(
     log_inflation = log(inflation),
     log_industrial_production = log(industrial_production)
   )
@@ -39,5 +39,5 @@ for (col in numeric_to_scale) {
 
 xts_data <- xts(df[, -1], order.by = df$date)
 
-write_csv(df, "data/macro_timeseries_clean.csv")
-write_csv(df_scaled, "data/macro_timeseries_scaled.csv")
+readr::write_csv(df, "data/macro_timeseries_clean.csv")
+readr::write_csv(df_scaled, "data/macro_timeseries_scaled.csv")

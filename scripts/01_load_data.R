@@ -1,4 +1,4 @@
-pkgs <- c("quantmod", "zoo", "xts", "dplyr", "tidyr", "readr", "ggplot2", "lmtest", "sandwich", "urca", "forecast", "rugarch", "vars")
+pkgs <- c("quantmod", "zoo", "xts", "dplyr", "tidyr", "readr", "ggplot2", "lmtest", "sandwich", "urca", "forecast", "rugarch", "vars", "FinTS")
 installed <- rownames(installed.packages())
 missing <- pkgs[!pkgs %in% installed]
 if (length(missing) > 0) {

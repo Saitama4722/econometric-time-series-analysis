@@ -1,0 +1,233 @@
+=== AUGMENTED DICKEY-FULLER TESTS ===
+
+Inflation:
+
+############################################### 
+# Augmented Dickey-Fuller Test Unit Root Test # 
+############################################### 
+
+Test regression drift 
+
+
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-3.09518 -0.11101 -0.02184  0.14195  1.96544 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 0.0459098  0.0247199   1.857   0.0636 .  
+z.lag.1     0.0009007  0.0001633   5.517 4.57e-08 ***
+z.diff.lag  0.5250687  0.0292003  17.982  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.3927 on 854 degrees of freedom
+Multiple R-squared:  0.3602,	Adjusted R-squared:  0.3587 
+F-statistic: 240.4 on 2 and 854 DF,  p-value: < 2.2e-16
+
+
+Value of test-statistic is: 5.5172 55.2912 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau2 -3.43 -2.86 -2.57
+phi1  6.43  4.59  3.78
+
+
+Unemployment:
+
+############################################### 
+# Augmented Dickey-Fuller Test Unit Root Test # 
+############################################### 
+
+Test regression drift 
+
+
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.8709 -0.1319 -0.0203  0.0972 10.3081 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.188393   0.051767   3.639 0.000290 ***
+z.lag.1     -0.032774   0.008578  -3.821 0.000143 ***
+z.diff.lag   0.053059   0.034183   1.552 0.120985    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4158 on 854 degrees of freedom
+Multiple R-squared:  0.01811,	Adjusted R-squared:  0.01581 
+F-statistic: 7.876 on 2 and 854 DF,  p-value: 0.0004081
+
+
+Value of test-statistic is: -3.8206 7.3067 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau2 -3.43 -2.86 -2.57
+phi1  6.43  4.59  3.78
+
+
+Interest rate:
+
+############################################### 
+# Augmented Dickey-Fuller Test Unit Root Test # 
+############################################### 
+
+Test regression drift 
+
+
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.6267 -0.0870 -0.0230  0.0939  3.0610 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.061828   0.024771   2.496  0.01275 *  
+z.lag.1     -0.013089   0.004267  -3.068  0.00223 ** 
+z.diff.lag   0.393824   0.031417  12.535  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.4414 on 854 degrees of freedom
+Multiple R-squared:  0.1597,	Adjusted R-squared:  0.1578 
+F-statistic: 81.17 on 2 and 854 DF,  p-value: < 2.2e-16
+
+
+Value of test-statistic is: -3.0676 4.7103 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau2 -3.43 -2.86 -2.57
+phi1  6.43  4.59  3.78
+
+
+Industrial production:
+
+############################################### 
+# Augmented Dickey-Fuller Test Unit Root Test # 
+############################################### 
+
+Test regression drift 
+
+
+Call:
+lm(formula = z.diff ~ z.lag.1 + 1 + z.diff.lag)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.0169  -0.2356   0.0203   0.2284   5.2643 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.1327089  0.0596209   2.226   0.0263 *  
+z.lag.1     -0.0008575  0.0008363  -1.025   0.3055    
+z.diff.lag   0.2214361  0.0333479   6.640 5.57e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6949 on 854 degrees of freedom
+Multiple R-squared:  0.05038,	Adjusted R-squared:  0.04815 
+F-statistic: 22.65 on 2 and 854 DF,  p-value: 2.596e-10
+
+
+Value of test-statistic is: -1.0253 5.6525 
+
+Critical values for test statistics: 
+      1pct  5pct 10pct
+tau2 -3.43 -2.86 -2.57
+phi1  6.43  4.59  3.78
+
+
+=== SHAPIRO-WILK NORMALITY TESTS ===
+
+inflation :
+
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.91912, p-value < 2.2e-16
+
+
+unemployment :
+
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.93693, p-value < 2.2e-16
+
+
+interest_rate :
+
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.92299, p-value < 2.2e-16
+
+
+industrial_production :
+
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.89881, p-value < 2.2e-16
+
+
+=== LINEAR REGRESSION ===
+
+
+Call:
+lm(formula = inflation ~ unemployment + interest_rate + industrial_production, 
+    data = df)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-39.385 -15.914   0.203  11.365  85.880 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           -50.20991    4.06978 -12.337  < 2e-16 ***
+unemployment            0.86242    0.50530   1.707   0.0882 .  
+interest_rate          -1.81527    0.25244  -7.191 1.41e-12 ***
+industrial_production   2.88628    0.03142  91.875  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 24.63 on 855 degrees of freedom
+Multiple R-squared:  0.9218,	Adjusted R-squared:  0.9215 
+F-statistic:  3358 on 3 and 855 DF,  p-value: < 2.2e-16
+
+
+=== BREUSCH-PAGAN TEST (Heteroskedasticity) ===
+
+
+	studentized Breusch-Pagan test
+
+data:  fit
+BP = 184.76, df = 3, p-value < 2.2e-16
+
+
+=== VARIANCE INFLATION FACTORS ===
+
+VIF unemployment: 1.005635 
+VIF interest_rate: 1.130059 
+VIF industrial_production: 1.129074 
+
+=== DURBIN-WATSON TEST (Autocorrelation) ===
+
+
+	Durbin-Watson test
+
+data:  fit
+DW = 0.0058155, p-value < 2.2e-16
+alternative hypothesis: true autocorrelation is greater than 0
+
