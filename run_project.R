@@ -2,6 +2,7 @@ dir.create("data", showWarnings = FALSE)
 dir.create("plots", showWarnings = FALSE)
 dir.create("results", showWarnings = FALSE)
 dir.create("scripts", showWarnings = FALSE)
+dir.create("delivery", showWarnings = FALSE)
 
 script_list <- c(
   "scripts/01_load_data.R",
@@ -20,4 +21,32 @@ for (i in seq_along(script_list)) {
   source(script_list[i])
 }
 
+clean_data <- readr::read_csv("data/macro_timeseries_clean.csv", col_types = readr::cols(date = readr::col_date()))
+writexl::write_xlsx(clean_data, "delivery/macro_timeseries.xlsx")
+readr::write_csv(clean_data, "delivery/macro_timeseries.csv")
+access_date <- format(Sys.Date(), "%Y-%m-%d")
+data_sources_lines <- c(
+  "# Data Sources",
+  "",
+  "| Source platform | Variable code | Variable full name | Short description | Access method | Retrieval/access date |",
+  "|-----------------|---------------|-------------------|-------------------|---------------|------------------------|",
+  paste0("| FRED | CPIAUCSL | Consumer Price Index for All Urban Consumers: All Items in U.S. City Average | Seasonally adjusted CPI, all items | quantmod getSymbols(..., src = \"FRED\") | ", access_date, " |"),
+  paste0("| FRED | UNRATE | Civilian Unemployment Rate | Seasonally adjusted monthly unemployment rate (percent) | quantmod getSymbols(..., src = \"FRED\") | ", access_date, " |"),
+  paste0("| FRED | FEDFUNDS | Federal Funds Effective Rate | Monthly average effective federal funds rate (percent) | quantmod getSymbols(..., src = \"FRED\") | ", access_date, " |"),
+  paste0("| FRED | INDPRO | Industrial Production Index | Seasonally adjusted index of industrial production | quantmod getSymbols(..., src = \"FRED\") | ", access_date, " |")
+)
+writeLines(data_sources_lines, "delivery/data_sources.md")
+readme_delivery_lines <- c(
+  "# Delivery Package",
+  "",
+  "| File | Description |",
+  "|------|-------------|",
+  "| macro_timeseries.xlsx | Final cleaned macroeconomic time series dataset (Excel). |",
+  "| macro_timeseries.csv | Same dataset in CSV format. |",
+  "| data_sources.md | Data source documentation (FRED series, codes, access). |",
+  "| README_delivery.md | This file; overview of delivery contents. |"
+)
+writeLines(readme_delivery_lines, "delivery/README_delivery.md")
+
 cat("\n=== Full econometric analysis finished successfully. ===\n")
+cat("=== Delivery files written to delivery/ ===\n")

@@ -1,4 +1,4 @@
-pkgs <- c("quantmod", "zoo", "xts", "dplyr", "tidyr", "readr", "ggplot2", "lmtest", "sandwich", "urca", "forecast", "rugarch", "vars", "FinTS")
+pkgs <- c("quantmod", "zoo", "xts", "dplyr", "tidyr", "readr", "ggplot2", "lmtest", "sandwich", "urca", "forecast", "rugarch", "vars", "FinTS", "writexl")
 installed <- rownames(installed.packages())
 missing <- pkgs[!pkgs %in% installed]
 if (length(missing) > 0) {
@@ -30,7 +30,4 @@ df <- data.frame(
 )
 df$date <- as.Date(df$date)
 df <- na.omit(df)
-
-str(df)
-
 write.csv(df, "data/macro_timeseries.csv", row.names = FALSE)
