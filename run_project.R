@@ -16,9 +16,35 @@ script_list <- c(
   "scripts/09_model_comparison.R"
 )
 
+CACHE_FILE <- "data/macro_timeseries.csv"
+REQUIRED_COLS <- c("date", "inflation", "unemployment", "interest_rate", "industrial_production")
+
 for (i in seq_along(script_list)) {
   cat("\n=== Running stage ", i, "/", length(script_list), ": ", script_list[i], " ===\n", sep = "")
-  source(script_list[i])
+  if (i == 1L) {
+    load_ok <- tryCatch(
+      { source(script_list[i]); TRUE },
+      error = function(e) {
+        if (file.exists(CACHE_FILE)) {
+          probe <- tryCatch(
+            readr::read_csv(CACHE_FILE, col_types = readr::cols(), n_max = 1L),
+            error = function(e2) NULL
+          )
+          if (!is.null(probe) && all(REQUIRED_COLS %in% names(probe))) {
+            message("Data load script failed; using existing cached dataset: ", CACHE_FILE)
+            TRUE
+          } else {
+            stop(e)
+          }
+        } else {
+          stop(e)
+        }
+      }
+    )
+    if (!load_ok) stop("Data loading failed and no valid cache available.")
+  } else {
+    source(script_list[i])
+  }
 }
 
 clean_data <- readr::read_csv("data/macro_timeseries_clean.csv", col_types = readr::cols(date = readr::col_date()))
